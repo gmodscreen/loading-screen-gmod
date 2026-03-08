@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Écran de chargement</title>
+    <style>
+        /* C'est ici que l'on gère le style (le CSS) */
+        body {
+            background-color: #1e272e; /* Couleur de fond sombre */
+            color: #ffffff; /* Texte en blanc */
+            font-family: Arial, sans-serif; /* Police d'écriture simple */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #0fb9b1; /* Titre en cyan */
+        }
+        #status {
+            font-size: 20px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bienvenue sur notre serveur DarkRP !</h1>
+    <div id="status">Récupération des informations du serveur...</div>
+
+    <script>
+        // Cette fonction est appelée par GMod quand le statut du chargement change
+        function SetStatusChanged(status) {
+            // On remplace le texte de la balise "status" par l'action en cours
+            document.getElementById('status').innerText = status;
+        }
+
+        // D'autres fonctions existent (GameDetails, SetFilesNeeded, etc.) 
+        // pour créer des barres de progression avancées.
+    </script>
+
+</body>
+</html>
