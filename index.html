@@ -8,124 +8,154 @@
     <style>
         /* --- STYLE VISUEL (CSS) --- */
         body {
-            /* Remplace l'URL ci-dessous par le lien direct de ton image de fond */
-            background-image: url('https://i.ibb.co/x8gNNgP6/20260309210426-1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
             font-family: 'Roboto', sans-serif;
             color: #ffffff;
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             height: 100vh;
             overflow: hidden;
+            /* Transition douce (fondu) de 1 seconde pour le changement d'image */
+            transition: background-image 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        /* La boîte centrale semi-transparente */
-        .container {
-            background-color: rgba(0, 0, 0, 0.7); /* Noir à 70% d'opacité */
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
-            /* Effet de flou en arrière-plan (ne marche pas sur tous les vieux navigateurs, mais rend bien) */
-            backdrop-filter: blur(5px); 
-        }
-
-        h1 {
-            color: #ff9f43; /* Couleur orange/dorée pour le titre */
-            margin-top: 0;
-            font-size: 32px;
-            text-transform: uppercase;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 400;
-            color: #c8d6e5;
-            margin-bottom: 30px;
-        }
-
-        /* Style de la barre de progression (le contour) */
-        .progress-bar-container {
+        /* Conteneur principal pour aligner les 3 boîtes côte à côte */
+        .main-wrapper {
+            display: flex;
+            justify-content: space-around; /* Espacement égal entre les boîtes */
+            align-items: center;
+            height: 100%;
             width: 100%;
-            background-color: #222f3e;
-            border-radius: 25px;
-            padding: 3px;
-            margin-bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.4); /* Assombrit un peu les images de fond pour mieux lire le texte */
         }
 
-        /* Style du remplissage de la barre */
-        .progress-bar-fill {
-            height: 20px;
-            background-color: #ff9f43;
-            border-radius: 20px;
-            width: 0%; /* Ça commencera à 0% */
-            transition: width 0.3s ease; /* Animation fluide lors du remplissage */
+        /* Style commun pour toutes les boîtes (Verre dépoli) */
+        .box {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
 
-        #status {
-            font-size: 14px;
-            font-style: italic;
-            color: #8395a7;
+        /* Boîtes latérales (Règles et Réseaux) */
+        .side-box {
+            width: 25%;
+            max-width: 300px;
         }
+
+        /* Boîte centrale (Chargement) */
+        .center-box {
+            width: 40%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Textes et Titres */
+        h1 { color: #ff9f43; margin-top: 0; font-size: 28px; text-transform: uppercase; text-align: center; }
+        h2 { font-size: 18px; font-weight: 400; color: #c8d6e5; margin-bottom: 20px; text-align: center; }
+        h3 { color: #0fb9b1; margin-top: 0; font-size: 22px; text-align: center; border-bottom: 2px solid #0fb9b1; padding-bottom: 10px;}
+        
+        p, li { font-size: 15px; line-height: 1.6; color: #dcdde1; }
+        ul { padding-left: 20px; }
+
+        /* Barre de progression */
+        .progress-bar-container { width: 100%; background-color: #222f3e; border-radius: 25px; padding: 3px; margin-bottom: 15px; }
+        .progress-bar-fill { height: 20px; background-color: #ff9f43; border-radius: 20px; width: 0%; transition: width 0.3s ease; }
+        #status { font-size: 14px; font-style: italic; color: #8395a7; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 id="server-name">Connexion au serveur...</h1>
-        <h2 id="map-name">Chargement de la carte...</h2>
-
-        <div class="progress-bar-container">
-            <div id="progress-fill" class="progress-bar-fill"></div>
-        </div>
+    <div class="main-wrapper">
         
-        <div id="status">Préparation du téléchargement...</div>
+        <div class="box side-box">
+            <h3>Règles du Serveur</h3>
+            <ul>
+                <li>Respectez tous les joueurs.</li>
+                <li>Le Freekill (RDM) est strictement interdit.</li>
+                <li>Jouez votre rôle (RP) en permanence.</li>
+                <li>Écoutez les indications du staff.</li>
+                <li>Amusez-vous bien !</li>
+            </ul>
+        </div>
+
+        <div class="box center-box">
+            <h1 id="server-name">Connexion au serveur...</h1>
+            <h2 id="map-name">Chargement de la carte...</h2>
+
+            <div class="progress-bar-container">
+                <div id="progress-fill" class="progress-bar-fill"></div>
+            </div>
+            
+            <div id="status">Préparation du téléchargement...</div>
+        </div>
+
+        <div class="box side-box">
+            <h3>Nous Rejoindre</h3>
+            <p><strong>Discord :</strong> à venirà venir</p>
+            <p><strong>Boutique :</strong> à venirà venir</p>
+            <p><strong>Forum :</strong> à venir</p>
+            <br>
+            <p><em>Bon jeu sur notre serveur !</em></p>
+        </div>
+
     </div>
 
     <script>
-        // Variables pour calculer le pourcentage
+        /* --- 1. GESTION DU DIAPORAMA D'IMAGES --- */
+        // Voici la liste de tes images. Ajoute ou remplace les liens entre les guillemets.
+        // N'oublie pas la virgule à la fin de chaque ligne (sauf la dernière).
+        var backgroundImages = [
+            "https://i.ibb.co/x8gNNgP6/20260309210426-1.jpg",
+            "https://i.ibb.co/chMqCPwg/20260311181050-1.jpg",
+            "https://i.ibb.co/mChp1v7R/20260311180630-1.jpg",
+			"https://i.ibb.co/39GPXxt4/20260311171746-1.jpg"
+        ];
+        
+        var currentImageIndex = 0;
+
+        function changeBackground() {
+            // Change l'image de fond du corps de la page
+            document.body.style.backgroundImage = "url('" + backgroundImages[currentImageIndex] + "')";
+            // Calcule l'index de la prochaine image
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+        }
+
+        // Lance la première image immédiatement
+        changeBackground();
+        // Répète la fonction toutes les 5000 millisecondes (5 secondes)
+        setInterval(changeBackground, 5000);
+
+
+        /* --- 2. GESTION DU TÉLÉCHARGEMENT GMOD --- */
         var totalFiles = 0;
         var filesNeeded = 0;
 
-        // Fonction appelée par GMod pour donner les détails du serveur
         function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
             document.getElementById('server-name').innerText = servername;
             document.getElementById('map-name').innerText = "Map : " + mapname;
         }
 
-        // Fonction appelée par GMod quand le texte de statut change
         function SetStatusChanged(status) {
             document.getElementById('status').innerText = status;
         }
 
-        // Fonction appelée par GMod pour définir le nombre total de fichiers à télécharger
         function SetFilesTotal(total) {
             totalFiles = Math.max(0, total);
         }
 
-        // Fonction appelée par GMod à chaque fois qu'un fichier est téléchargé
         function SetFilesNeeded(needed) {
             filesNeeded = Math.max(0, needed);
             UpdateProgressBar();
         }
 
-        // Notre fonction personnalisée pour calculer et afficher le pourcentage
         function UpdateProgressBar() {
             if (totalFiles > 0) {
-                // On calcule combien de fichiers ont été téléchargés
                 var filesDownloaded = totalFiles - filesNeeded;
-                // On calcule le pourcentage
                 var percentage = Math.round((filesDownloaded / totalFiles) * 100);
-                
-                // On met à jour la largeur de la barre en CSS
                 document.getElementById('progress-fill').style.width = percentage + "%";
             }
         }
